@@ -1,0 +1,7 @@
+// runs babel-reset-react from node_modules
+
+{
+  "presets": [
+    "react"
+  ]
+}
