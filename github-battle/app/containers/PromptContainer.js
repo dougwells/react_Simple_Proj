@@ -1,10 +1,12 @@
 var React = require('react');
+var styles = require('../styles/index');
 
 var PromptContainer = React.createClass({
   render: function(){
+    console.log(this)
     return (
-      <div className="jumbotroncol-sm-6 col-sm-offset-3 text-center">
-        <h1>Some Header Text</h1>
+      <div style={styles.transparentBg} className="jumbotron col-sm-6 col-sm-offset-3 text-center">
+        <h1>{this.props.route.header}</h1>
         <form>
           <div className="form-group">
             <input
