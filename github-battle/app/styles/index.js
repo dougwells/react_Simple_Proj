@@ -4,7 +4,6 @@ var styles = {
     background: 'transparent',
     color: 'red'
   }
-
 }
 
 module.exports = styles
