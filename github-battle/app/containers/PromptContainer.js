@@ -1,5 +1,6 @@
 var React = require('react');
 var styles = require('../styles/index');
+var Prompt = require('../components/Prompt');
 
 var PromptContainer = React.createClass({
 
@@ -22,11 +23,18 @@ var PromptContainer = React.createClass({
     var username = this.state.username;
     this.setState({username: ''});
     if(this.props.routeParams.playerOne){
-      //Go to Battle!
-      console.log(this.context)
+      console.log("Go to Battle!")
+      this.context.router.push({
+        pathname: '/battle',
+        query: {
+          playerOne: this.props.routeParams.playerOne,
+          playerTwo: this.state.username
+        }
+      });
     }else{
-      //Go to Player2
-      console.log(this.context)
+      console.log("Go to Player 2")
+      console.log('this.state.username = ', this.state.username)
+      this.context.router.push('/playerTwo/' + this.state.username)
     }
 
 
@@ -42,14 +50,14 @@ var PromptContainer = React.createClass({
               className = "form-control"
               placeholder = "Github Username"
               type = "text"
+              onChange = {this.onUpdateUser}
+              value = {this.state.username}
             />
           </div>
           <div className = "form-group col-sm-4 col-sm-offset-4">
             <button
               className = "btn btn-block btn-success"
               type = "submit"
-              onChange = {this.onUpdateUser}
-              value = {this.state.username}
             >
               Continue
             </button>
